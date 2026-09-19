@@ -243,3 +243,5 @@ mxy-harness/
 MIT © 2024 mcxiaoyang
 
 详见 [LICENSE](LICENSE)。
+
+[![build](https://github.com/MCXiaoyang/mxy-harness/actions/workflows/build.yml/badge.svg)](https://github.com/MCXiaoyang/mxy-harness/actions/workflows/build.yml)

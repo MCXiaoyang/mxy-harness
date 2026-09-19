@@ -1,0 +1,39 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cpp:
+    name: C++ build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile daemon
+        run: |
+          mkdir -p build
+          g++ -std=c++17 -O2 -Wall -Wextra -pthread cpp/main.cpp -o build/mxy-harnessd
+
+      - name: Version check
+        run: ./build/mxy-harnessd --version
+
+  python:
+    name: Python check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install flask flask-sock
+
+      - name: Import check
+        working-directory: python
+        run: python -c "import app; print('import OK')"

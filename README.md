@@ -1,6 +1,7 @@
 # mxy-harness
 
 > 一个本地优先、协议无关的 LLM 中继守护进程。C++ 核心 + Unix Socket + Python/Flask 前端。
+> 我没编译，linux和macos用户直接编译就行，Windows用户建议使用WSL进行编译并在WSL里运行
 
 ---
 
